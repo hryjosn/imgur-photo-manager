@@ -1,0 +1,51 @@
+{
+    "editor.fontLigatures": true,
+    "git.autofetch": true,
+    "explorer.confirmDelete": false,
+    "git.enableSmartCommit": true,
+    "files.exclude": {
+      "/node_modules/": true
+    },
+    "search.exclude": {
+      "android/": true,
+      "ios": true
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "git.confirmSync": false,
+    "[javascript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.tabSize": 4,
+      "editor.formatOnSave": false,
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.formatOnSave": false,
+    },
+    "workbench.tree.indent": 16,
+    // 啟用 emmet
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "eslint.format.enable": true,
+    "eslint.codeActionsOnSave.mode": "problems",
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "files.autoSave": "onFocusChange",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "gitlens.views.commits.files.layout": "list",
+    "workbench.iconTheme": "material-icon-theme",
+    "tabnine.experimentalAutoImports": true,
+    "window.zoomLevel": 2,
+    "workbench.colorTheme": "Winter is Coming (Dark Blue)",
+  }
