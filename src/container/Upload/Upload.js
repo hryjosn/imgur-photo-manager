@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   Container,
   Content,
@@ -5,9 +6,20 @@ import {
   UploadDescription,
   ActionBar,
 } from "./Upload.style";
+import { callUploadPhoto, callGetAlbum } from "../../api/api";
 const Upload = () => {
-  const onFileUpload = (event) => {
-    console.log(event.target.files[0]);
+  useEffect(() => {
+    callGetAlbum("vOVkBWW");
+  }, []);
+  const onFileUpload = async (event) => {
+    const data = new FormData();
+    const image = event.target.files[0];
+    data.append("image", image);
+    // data.append("type", "data");
+    data.append("album", "vOVkBWW");
+    data.append("title", image.name);
+    const res = await callUploadPhoto(data);
+    console.log("res>", res);
   };
   return (
     <Container>
@@ -25,8 +37,7 @@ const Upload = () => {
           onChange={onFileUpload}
         />
         <UploadDescription className="RB0F0 LAU8F xNKUO dvBHu oh0KJ">
-          Drag and drop up to 10 images or <span className="UBNiJ">Browse</span>{" "}
-          to choose a file
+          <span className="UBNiJ">Browse</span> to choose a file
         </UploadDescription>
       </Content>
       <ActionBar>
