@@ -11,7 +11,7 @@ export const formPost = async (
   console.log("form", data);
   return axios({
     method: "POST",
-    endPoint: API_URL + endPoint,
+    url: API_URL + endPoint,
     data, // Data
 
     headers: {

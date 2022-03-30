@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Container,
   Content,
@@ -8,6 +8,7 @@ import {
 } from "./Upload.style";
 import { callUploadPhoto, callGetAlbum } from "../../api/api";
 const Upload = () => {
+  const [imgUrl, setImgUrl] = useState("");
   useEffect(() => {
     callGetAlbum("vOVkBWW");
   }, []);
@@ -15,7 +16,7 @@ const Upload = () => {
     const data = new FormData();
     const image = event.target.files[0];
     data.append("image", image);
-    // data.append("type", "data");
+
     data.append("album", "vOVkBWW");
     data.append("title", image.name);
     const res = await callUploadPhoto(data);
