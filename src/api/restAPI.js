@@ -16,7 +16,7 @@ export const formPost = async (
 
     headers: {
       //   Authorization: `Client-ID ${process.env.REACT_APP_CLIENT_ID}`,
-      Authorization: `Bearer 41bfdfb2dd8b17869ee3a7ae34f0403baa49e349`,
+      Authorization: `Bearer edd661c627a42a4a8be2629c2c064798a2881218`,
     },
     mimeType: "multipart/form-data",
   })

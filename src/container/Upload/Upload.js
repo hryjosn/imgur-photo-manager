@@ -10,24 +10,24 @@ import { callUploadPhoto, callGetAlbum } from "../../api/api";
 const Upload = () => {
   const [imgUrl, setImgUrl] = useState("");
   useEffect(() => {
-    callGetAlbum("vOVkBWW");
+    callGetAlbum("iiJQ1TF");
   }, []);
   const onFileUpload = async (event) => {
     const data = new FormData();
     const image = event.target.files[0];
     data.append("image", image);
 
-    data.append("album", "vOVkBWW");
+    // data.append("album", "vOVkBWW");
     data.append("title", image.name);
     const res = await callUploadPhoto(data);
-    console.log("res>", res);
+    setImgUrl(res.data.data.link);
   };
   return (
     <Container>
       <Content>
         <label htmlFor="upload-button">
           <ImgBox>
-            <img src="/images/photo.png" />
+            <img src={imgUrl || "/images/photo.png"} />
           </ImgBox>
         </label>
 
