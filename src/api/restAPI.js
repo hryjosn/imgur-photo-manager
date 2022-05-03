@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
-console.log("API_URL>", API_URL);
+
 export const formPost = async (
   endPoint,
   data,
@@ -13,10 +13,9 @@ export const formPost = async (
     method: "POST",
     url: API_URL + endPoint,
     data, // Data
-
     headers: {
       //   Authorization: `Client-ID ${process.env.REACT_APP_CLIENT_ID}`,
-      Authorization: `Bearer edd661c627a42a4a8be2629c2c064798a2881218`,
+      Authorization: process.env.REACT_APP_IMGUR_TOKEN,
     },
     mimeType: "multipart/form-data",
   })
@@ -51,7 +50,7 @@ export const post = async (endPoint, data, debug = false, timeout = 6000) => {
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
       Accept: "application/json;",
-      Authorization: `Bearer ${token}`,
+      Authorization: token,
     },
   })
     .then((response) => {
@@ -81,7 +80,7 @@ export const get = async (endPoint, params, debug = false, timeout = 6000) => {
     .get(API_URL + endPoint, {
       params,
       headers: {
-        Authorization: `Client-ID ${process.env.REACT_APP_CLIENT_ID}`,
+        Authorization: process.env.REACT_APP_IMGUR_TOKEN,
       },
     })
     .then((response) => {

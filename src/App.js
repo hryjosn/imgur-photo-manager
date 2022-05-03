@@ -2,14 +2,17 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Upload from "./container/Upload";
 import Album from "./container/Album";
-import Index from "./container/Index";
+import Home from "./container/Home";
+import RootStoreContext from "./store";
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Index />} />
-      <Route path="/upload" element={<Upload />} />
-      <Route path="/album" element={<Album />} />
-    </Routes>
+    <RootStoreContext>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/album" element={<Album />} />
+      </Routes>
+    </RootStoreContext>
   );
 }
 
