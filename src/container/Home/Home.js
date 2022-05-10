@@ -2,13 +2,21 @@ import { Form } from "./Home.style";
 import axios from "axios";
 import { useStore } from "../../store";
 import { observer } from "mobx-react-lite"; // 1
+import Container from "./Container"; // 1
 const Index = () => {
   const {
-    SignUpStore: { email, phone, password, updateData },
+    SignUpStore: {
+      email,
+      phone,
+      password,
+      updateData,
+      number,
+      plusOne,
+      substractOne,
+      assignData,
+    },
   } = useStore();
-  // const store = useStore().SignUpStore;
-  // const myEmail = store.email;
-  console.log("test Email>", email);
+
   const onSubmit = (e) => {
     e.preventDefault();
     const postData = { email, password, phone };
@@ -36,13 +44,13 @@ const Index = () => {
     })();
   };
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit} style={{ textAlign: "center" }}>
       <label>phone</label>
       <input
         type="text"
         value={phone}
         onChange={(e) => {
-          updateData("phone", e.target.value);
+          assignData({ phone: e.target.value });
         }}
       />
       <label>Email</label>
@@ -62,6 +70,12 @@ const Index = () => {
         }}
       />
       <button type="submit">Sign Up</button>
+      <Container value={1}>
+        <span style={{ color: "red" }}>{number}</span>
+      </Container>
+
+      <button onClick={plusOne}>+1</button>
+      <button onClick={substractOne}>-1</button>
     </Form>
   );
 };
